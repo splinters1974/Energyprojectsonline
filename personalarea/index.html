@@ -1,14 +1,35 @@
 <!doctype html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="theme-color" content="#0b1220">
+<html lang="en-GB"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#0b1220">
 <title>Personal Area | Energy Projects</title>
 <style>
-:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b1220;color:#f5f6f8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px}main{width:min(850px,100%)}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#dcfb4a;margin-bottom:30px}h1{font-size:clamp(54px,10vw,108px);line-height:.95;letter-spacing:-.075em;text-transform:uppercase;margin:0 0 35px;font-weight:900}.accent{width:90px;height:8px;background:#dcfb4a;border-radius:8px;margin-bottom:28px}p{color:#b8c1ce;font-size:clamp(18px,2.5vw,24px);line-height:1.5;margin:0}.foot{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a5adbe;margin-top:90px}
-</style>
-</head>
-<body><main><div class="eyebrow">Energy Projects / Private area</div><h1>Personal Area</h1><div class="accent"></div><p>This area is reserved for future personal projects.</p><div class="foot">energyprojects.online/personalarea</div></main></body>
-</html>
+:root{color-scheme:dark;--bg:#0b1220;--lime:#dcfb4a}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#f7f8fc;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+header{border-bottom:1px solid #ffffff26;padding:25px 0}
+.brand{font-weight:900;letter-spacing:.12em;color:var(--lime);font-size:13px;text-decoration:none}
+main{padding:95px 0 110px}
+.eyebrow{font-size:12px;letter-spacing:.2em;font-weight:850;color:var(--lime);text-transform:uppercase}
+h1{font-weight:900;line-height:.95;letter-spacing:-.07em;font-size:clamp(52px,9vw,112px);margin:23px 0 25px}
+.intro{font-size:clamp(17px,2vw,22px);line-height:1.6;color:#b8c5d3;margin:0 0 50px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tile{border:1px solid #4a5871;background:linear-gradient(145deg,#17243a,#111b2d);padding:34px;min-height:205px;text-decoration:none;color:white;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,border-color .2s}
+.tile:hover,.tile:focus-visible{border-color:var(--lime);transform:translateY(-3px);outline:none}
+.number{font-size:12px;color:var(--lime);font-weight:900;letter-spacing:.14em}
+.tile strong{font-size:clamp(26px,3vw,41px);letter-spacing:-.055em;line-height:1.1}
+.open{font-size:13px;font-weight:800;color:var(--lime)}
+footer{border-top:1px solid #ffffff20;padding:22px 0 35px;color:#94a3b8;font-size:12px}
+@media(max-width:620px){main{padding:65px 0 80px}.grid{grid-template-columns:1fr}.tile{min-height:166px;padding:25px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="wrap"><span class="brand">ENERGY PROJECTS / PRIVATE</span></div></header>
+<main class="wrap"><div class="eyebrow">Your private dashboard</div><h1>PERSONAL<br>AREA<span style="color:var(--lime)">.</span></h1>
+<p class="intro">Choose an area below to open its page. Each section remains password protected and is not linked from the public homepage.</p>
+<nav class="grid" aria-label="Private areas">
+<a class="tile" href="/work-projects/"><span class="number">01 / PRIVATE</span><strong>Work Projects</strong><span class="open">Open area ↗</span></a>
+<a class="tile" href="/personal-projects/"><span class="number">02 / PRIVATE</span><strong>Personal Projects</strong><span class="open">Open area ↗</span></a>
+<a class="tile" href="/sandbox-area/"><span class="number">03 / PRIVATE</span><strong>Sandbox Area</strong><span class="open">Open area ↗</span></a>
+<a class="tile" href="/bits-and-pieces/"><span class="number">04 / PRIVATE</span><strong>Bits and Pieces</strong><span class="open">Open area ↗</span></a>
+</nav></main><footer><div class="wrap">Energy Projects · Private area</div></footer>
+</body></html>
