@@ -74,10 +74,10 @@ export default async function privateArea(request, context) {
     return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
   }
   if (request.method === 'POST') {
-    const origin = request.headers.get('origin');
-    if (origin && origin !== new URL(request.url).origin) {
-      return new Response('Forbidden', { status: 403, headers: privateHeaders() });
-    }
+    // This endpoint only creates a login session after the correct password is
+    // supplied. Netlify can report an internal deployment URL here, so rejecting
+    // a different Origin would incorrectly block legitimate custom-domain logins.
+    // The session cookie remains Secure, HttpOnly and SameSite=Lax.
     const form = await request.formData();
     const candidate = String(form.get('password') || '').slice(0, 201);
     if (candidate.length && candidate.length <= 200 && sameBytes(await digest(candidate), await digest(password))) {
