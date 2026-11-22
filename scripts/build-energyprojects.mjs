@@ -8,7 +8,7 @@ import { join, relative } from 'node:path';
 const root = process.cwd();
 const source = join(root, '.personal-astro-source');
 const output = join(root, '_site');
-const commit = 'fd2ad64a74d0aad0e5b15cd02e4533b9bbf2dfc6';
+const commit = 'ec30743f68f7b4a8dbd16b040c556cc1786004ee';
 const prefix = '/personal-projects';
 const gitUrl = 'https://github.com/splinters1974/personalsite.git';
 
@@ -29,7 +29,7 @@ for (const name of readdirSync(root)) {
   cpSync(entry, join(output, name), { recursive: true });
 }
 rmSync(source, { recursive: true, force: true });
-run('git', ['clone', '--depth', '1', '--branch', 'claude/epic-volta-1jsih2', gitUrl, source]);
+run('git', ['clone', '--depth', '1', '--branch', 'chatgpt/voice-rewrite-2026-11', gitUrl, source]);
 const actual = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: source, encoding: 'utf8' }).trim();
 if (actual !== commit) throw new Error('Claude working branch has moved: refusing to deploy unreviewed code. Expected ' + commit + ', got ' + actual);
 run('npm', ['ci', '--no-audit', '--no-fund'], source);
