@@ -8,13 +8,13 @@ import { join, relative } from 'node:path';
 const root = process.cwd();
 const source = join(root, '.personal-astro-source');
 const output = join(root, '_site');
-const commit = 'bd431bd108f1a989d2d52fb5bcf2661cd1be9ff2';
+const commit = '02a5eb2e900b61127fa04e5cb09dce88849eddf9';
 const prefix = '/personal-projects';
 const gitUrl = 'https://github.com/splinters1974/personalsite.git';
 
 function run(exe, args, cwd = root) {
   console.log('Running', exe, args.join(' '));
-  execFileSync(exe, args, { cwd, stdio: 'inherit', env: { ...process.env, PUBLIC_PROTOTYPE: 'true' } });
+  execFileSync(exe, args, { cwd, stdio: 'inherit', env: { ...process.env, PUBLIC_PROTOTYPE: 'false' } });
 }
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
@@ -33,7 +33,7 @@ run('git', ['clone', '--depth', '1', '--branch', 'chatgpt/voice-rewrite-2026-11'
 const actual = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: source, encoding: 'utf8' }).trim();
 if (actual !== commit) throw new Error('Claude working branch has moved: refusing to deploy unreviewed code. Expected ' + commit + ', got ' + actual);
 run('npm', ['ci', '--no-audit', '--no-fund'], source);
-run('npm', ['run', 'build:proto'], source);
+run('npm', ['run', 'build'], source);
 const dist = join(source, 'dist');
 if (!existsSync(join(dist, 'index.html'))) throw new Error('Missing Astro homepage output');
 // The prototype's own sitemap/robots files are not suitable for a protected sub-site.
