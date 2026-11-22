@@ -8,7 +8,7 @@ import { join, relative } from 'node:path';
 const root = process.cwd();
 const source = join(root, '.personal-astro-source');
 const output = join(root, '_site');
-const commit = '07b5aa2df446ec2de424d9092a59b76a813f4bc9';
+const commit = '34c39e09d16d329bed469900a2f35531aee96cde';
 const prefix = '/personal-projects';
 const gitUrl = 'https://github.com/splinters1974/personalsite.git';
 
