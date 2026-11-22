@@ -100,6 +100,7 @@ export const config = {
     '/work-projects', '/work-projects/*',
     '/personal-projects', '/personal-projects/*',
     '/sandbox-area', '/sandbox-area/*',
-    '/bits-and-pieces', '/bits-and-pieces/*'
+    '/bits-and-pieces', '/bits-and-pieces/*',
+    '/personalarea', '/personalarea/*'
   ]
 };
