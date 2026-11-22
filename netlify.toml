@@ -1,0 +1,9 @@
+# Energy Projects is a static HTML site, not Astro.
+# This file takes priority over stale build settings in Netlify's UI.
+[build]
+  base = "."
+  publish = "."
+  command = "echo 'Energy Projects: static site, no build required'"
+
+[build.environment]
+  NODE_VERSION = "22"
