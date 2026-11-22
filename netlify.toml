@@ -1,9 +1,22 @@
-# Energy Projects is a static HTML site, not Astro.
-# This file takes priority over stale build settings in Netlify's UI.
+# Publish existing Energy Projects pages together with the pinned Astro prototype.
+# All Martyn Sheridan content is built only into /personal-projects/.
 [build]
   base = "."
-  publish = "."
-  command = "echo 'Energy Projects: static site, no build required'"
+  publish = "_site"
+  command = "node scripts/build-energyprojects.mjs"
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Protect the visual prototype from indexing; the Edge Function enforces
+# the actual password check on /personal-projects and all descendants.
+[[headers]]
+  for = "/personal-projects/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "private, no-store"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
